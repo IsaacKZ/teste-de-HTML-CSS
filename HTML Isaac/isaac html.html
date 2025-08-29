@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Isaac K.Z - Desenvolvedor Backend</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+      :root {
+        --background: #0A192F;
+        --surface: #112240;
+        --card: #1A2C4D;
+        --accent: #64FFDA;
+        --text-primary: #E6F1FF;
+        --text-secondary: #8892B0;
+      }
+      
+      body {
+        background: linear-gradient(120deg, var(--background) 0%, var(--surface) 100%);
+        font-family: 'Montserrat', Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 48px auto;
+        background: var(--surface);
+        border-radius: 22px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+        padding: 48px 40px;
+        text-align: center;
+        animation: fadeIn 1.2s;
+        transition: all 0.3s ease;
+      }
+
+      .container:hover {
+        box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(30px);}
+        to { opacity: 1; transform: translateY(0);}
+      }
+
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+        margin-bottom: 32px;
+        flex-wrap: wrap;
+      }
+
+      .photo-container {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 3px solid var(--accent);
+        transition: all 0.3s ease;
+      }
+
+      .photo-container:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
+      }
+
+      .profile-photo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .header-info {
+        text-align: left;
+      }
+
+      h1 {
+        color: var(--accent);
+        margin: 0 0 8px 0;
+        font-size: 2.8em;
+        letter-spacing: 2px;
+        font-weight: 700;
+        transition: all 0.3s ease;
+      }
+
+      h1:hover {
+        transform: scale(1.02);
+        text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+      }
+
+      .title {
+        color: var(--text-primary);
+        font-size: 1.2em;
+        font-weight: 500;
+        margin-bottom: 16px;
+      }
+
+      .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--text-secondary);
+        font-size: 0.95em;
+        transition: all 0.3s ease;
+      }
+
+      .contact-item:hover {
+        color: var(--accent);
+        transform: translateX(5px);
+      }
+
+      .contact-item i {
+        color: var(--accent);
+        width: 16px;
+      }
+
+      .subtitle {
+        color: var(--text-primary);
+        font-size: 1.2em;
+        margin-bottom: 28px;
+        font-weight: 500;
+        text-align: center;
+        line-height: 1.6;
+      }
+
+      .about {
+        color: #FFFFFF;
+        font-size: 1.08em;
+        margin-bottom: 32px;
+        background: var(--card);
+        border-radius: 20px;
+        padding: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        line-height: 1.6;
+      }
+
+      .section-title {
+        color: var(--accent);
+        font-size: 1.4em;
+        margin: 36px 0 20px 0;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-align: left;
+        border-bottom: 2px solid var(--accent);
+        padding-bottom: 8px;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 24px 0;
+      }
+
+      ul li {
+        background: var(--card);
+        margin: 8px 0;
+        padding: 12px 20px;
+        border-radius: 8px;
+        color: var(--text-primary);
+        font-size: 1em;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+        text-align: left;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        transition: all 0.3s ease;
+        border-left: 3px solid transparent;
+      }
+
+      ul li:hover {
+        transform: translateX(8px);
+        border-left: 3px solid var(--accent);
+        background: var(--surface);
+        box-shadow: 0 4px 12px rgba(100, 255, 218, 0.1);
+      }
+
+      ul li::before {
+        content: "▶";
+        color: var(--accent);
+        font-size: 0.8em;
+      }
+
+      .certificados {
+        display: flex;
+        justify-content: center;
+        gap: 32px;
+        flex-wrap: wrap;
+      }
+
+      .certificado {
+        width: 220px;
+        height: 150px;
+        background: var(--card);
+        border-radius: 16px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: all 0.4s ease;
+      }
+
+      .certificado:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 12px 32px rgba(100, 255, 218, 0.2);
+      }
+
+      .certificado img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* Modal para certificados */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.9);
+        animation: fadeIn 0.3s;
+      }
+
+      .modal-content {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .modal-content img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      }
+
+      .close {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #f1f1f1;
+        font-size: 40px;
+        font-weight: bold;
+        transition: 0.3s;
+        cursor: pointer;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      .cert-caption {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+        text-align: center;
+        color: #ccc;
+        padding: 10px 0;
+        height: 150px;
+        font-size: 18px;
+      }
+
+      @media (max-width: 600px) {
+        .header {
+          flex-direction: column;
+          text-align: center;
+        }
+        
+        .header-info {
+          text-align: center;
+        }
+        
+        .contact-info {
+          align-items: center;
+        }
+        
+        h1 {
+          font-size: 2.2em;
+        }
+        
+        .container {
+          margin: 24px 16px;
+          padding: 32px 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="photo-container">
+          <img src="Imagens/imagem.jpg" alt="Isaac K.Z" class="profile-photo">
+        </div>
+        <div class="header-info">
+          <h1>Isaac K.Z</h1>
+          <div class="contact-info">
+            <div class="contact-item"><i class="fas fa-envelope"></i> isaackz2008@gmail.com</div>
+            <div class="contact-item"><i class="fas fa-phone"></i> (47) 98911-2319</div>
+            <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Joinville - Santa Catarina</div>
+            <div class="contact-item"><i class="fas fa-briefcase"></i> Disponível para oportunidades</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="subtitle">Futuro Desenvolvedor Backend</div>
+      
+      <div class="about">
+        Tenho interesse em programação, especialmente backend.<br>
+        Busco constantemente me tornar melhor do que fui ontem.
+      </div>
+      
+      <div class="section-title"> Minhas Habilidades</div>
+      <ul>
+        <li>Adaptabilidade</li>
+        <li>Python, CSS e HTML básico</li>
+        <li>Organização</li>
+        <li>Flexibilidade</li>
+      </ul>
+      
+      <div class="section-title">📜 Certificados</div>
+      <div class="certificados">
+        <div class="certificado" onclick="openModal('certificados/certificado1_page-0001')">
+          <img src="certificados/certificado1_page-0001.jpg" alt="Certificado 1">
+        </div>
+        <div class="certificado" onclick="openModal('certificados/certificado2.jpg')">
+          <img src="certificados/certificado2_page-0001.jpg" alt="Certificado 2">
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal para certificados -->
+    <div id="certModal" class="modal" onclick="closeModal(event)">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal(event)">&times;</span>
+        <img id="modalImg" src="" alt="Certificado em tela cheia" />
+        <div id="modalCaption" class="cert-caption"></div>
+      </div>
+    </div>
+
+    <script>
+      function openModal(imgSrc, caption) {
+        const modal = document.getElementById('certModal');
+        const modalImg = document.getElementById('modalImg');
+        const modalCaption = document.getElementById('modalCaption');
+        
+        modal.style.display = 'flex';
+        modalImg.src = imgSrc;
+        modalCaption.textContent = caption;
+      }
+
+      function closeModal(event) {
+        const modal = document.getElementById('certModal');
+        if (event.target === modal || event.target.classList.contains('close')) {
+          modal.style.display = 'none';
+        }
+      }
+
+      // Fecha modal com ESC
+      document.addEventListener('keydown', function(e) {
+        if (e.key === "Escape") {
+          document.getElementById('certModal').style.display = 'none';
+        }
+      });
+    </script>
+  </body>
+</html>
